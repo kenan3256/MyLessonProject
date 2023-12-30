@@ -1,6 +1,5 @@
 package com.kenanhaciyev.mylessonproject
 
-import android.app.SearchManager.OnCancelListener
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.service.autofill.OnClickAction
@@ -10,32 +9,30 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModelProvider
 import com.kenanhaciyev.mylessonproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
-
-    var name = MutableLiveData<String>()
-    var surname = MutableLiveData<String>()
-    var clas = MutableLiveData<String>()
+    lateinit var viewModel: MainActivtyViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(MainActivtyViewModel::class.java)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.lifecycleOwner=this
 
-        binding.adi = this
-        binding.soyadi = this
-        binding.sinifi = this
-
+        binding.lifecycleOwner = this
         binding.btnDaxilet.setOnClickListener {
-            name.postValue("Kenan")
-            surname.postValue("Haciyev")
-            clas.postValue("9s")
+          viewModel.getFulldata()
         }
+
+        binding.viewModel = viewModel
+
+
 
 
     }

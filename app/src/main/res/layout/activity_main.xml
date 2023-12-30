@@ -2,14 +2,9 @@
 <layout>
     <data>
         <variable
-            name="adi"
-            type="com.kenanhaciyev.mylessonproject.MainActivity" />
-        <variable
-            name="soyadi"
-            type="com.kenanhaciyev.mylessonproject.MainActivity" />
-        <variable
-            name="sinifi"
-            type="com.kenanhaciyev.mylessonproject.MainActivity" />
+            name="viewModel"
+            type="com.kenanhaciyev.mylessonproject.MainActivtyViewModel" />
+
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -26,7 +21,7 @@
         android:id="@+id/etxt_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{adi.name}"
+        android:text="@={viewModel.name}"
         android:hint="User Name" />
 
     <EditText
@@ -34,16 +29,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Surname"
-        android:text="@{soyadi.surname}"
+        android:text="@={viewModel.surname}"
         app:layout_constraintTop_toBottomOf="@id/etxt_username" />
 
     <EditText
         android:id="@+id/etxt_clas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@{sinifi.clas}"
+        android:text="@={viewModel.clas}"
         android:hint="Class"
         app:layout_constraintTop_toBottomOf="@id/etxt_usersurname" />
+
+    <EditText
+        android:id="@+id/etxt_fullData"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@{viewModel.fullData}"
+
+        app:layout_constraintTop_toBottomOf="@id/etxt_clas" />
 
 
     <Button
@@ -57,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etxt_clas"
+        app:layout_constraintTop_toBottomOf="@id/etxt_fullData"
 
         />
 
