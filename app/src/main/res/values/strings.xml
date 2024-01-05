@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyLessonProject</string>
+    <string name="daxil_et">Daxil et</string>
+    <string name="notes_add">Yeni notes elave et</string>
 </resources>

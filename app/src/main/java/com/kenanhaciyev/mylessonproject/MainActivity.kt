@@ -1,16 +1,14 @@
 package com.kenanhaciyev.mylessonproject
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.service.autofill.OnClickAction
-import android.view.View
-import android.view.View.OnClickListener
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import androidx.lifecycle.MutableLiveData
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.kenanhaciyev.mylessonproject.databinding.ActivityMainBinding
+import com.kenanhaciyev.mylessonproject.fetures.model.Notes
+import com.kenanhaciyev.mylessonproject.fetures.NewNotes.AddNotesActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -23,18 +21,48 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(MainActivtyViewModel::class.java)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         binding.lifecycleOwner = this
-        binding.btnDaxilet.setOnClickListener {
-          viewModel.getFulldata()
+        binding.viewModel = viewModel
+        setContentView(binding.root)
+    }
+
+    fun openAddStudentActivity() {
+        val intent = Intent(this, AddNotesActivity::class.java)
+        newNotesLouncher.launch(intent)
+    }
+
+    val newNotesLouncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { resualt ->
+            if (resualt.resultCode == Activity.RESULT_OK) {
+                val item = resualt.data?.getParcelableExtra<Notes>("notes")
+            println(item)
+            }
         }
 
-        binding.viewModel = viewModel
+    fun observerAll() {
+        viewModel.addNotesObserver.observe(this) {
+            if (it) {
+                openAddStudentActivity()
+            }
+
+        }
 
 
+    }
 
+    fun removeObserverAll() {
+        viewModel.addNotesObserver.removeObservers(this)
+        viewModel.addNotesObserver.postValue(false)
+    }
 
+    override fun onResume() {
+        super.onResume()
+        observerAll()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        removeObserverAll()
     }
 
 }
