@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.kenanhaciyev.mylessonproject.fetures.NewNotes.AddNotesViewModel" />
+            type="com.kenanhaciyev.mylessonproject.fetures.newnotes.AddNotesViewModel" />
 
     </data>
 
@@ -19,7 +19,7 @@
         android:layout_margin="30dp"
         android:background="#A7CDCA"
         android:padding="20dp"
-        tools:context=".MainActivity">
+        tools:context=".fetures.notes.MainActivity">
 
         <EditText
             android:id="@+id/etxt_title"

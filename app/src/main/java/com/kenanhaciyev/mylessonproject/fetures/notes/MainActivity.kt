@@ -1,4 +1,4 @@
-package com.kenanhaciyev.mylessonproject
+package com.kenanhaciyev.mylessonproject.fetures.notes
 
 import android.app.Activity
 import android.content.Intent
@@ -8,7 +8,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.kenanhaciyev.mylessonproject.databinding.ActivityMainBinding
 import com.kenanhaciyev.mylessonproject.fetures.model.Notes
-import com.kenanhaciyev.mylessonproject.fetures.NewNotes.AddNotesActivity
+import com.kenanhaciyev.mylessonproject.fetures.newnotes.AddNotesActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding

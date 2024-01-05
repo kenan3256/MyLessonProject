@@ -1,4 +1,4 @@
-package com.kenanhaciyev.mylessonproject.fetures.NewNotes
+package com.kenanhaciyev.mylessonproject.fetures.newnotes
 
 import android.content.Intent
 import android.os.Bundle
@@ -27,7 +27,6 @@ class AddNotesActivity: AppCompatActivity() {
     fun observerAll() {
         viewModel.newNoteCallback.observe(this){
             val intent = Intent()
-
             val notes = Notes("Yanvar", "ise get")
             intent.putExtra("notes", notes)
             setResult(RESULT_OK, intent )

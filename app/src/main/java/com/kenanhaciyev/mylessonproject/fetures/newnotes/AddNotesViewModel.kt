@@ -1,4 +1,4 @@
-package com.kenanhaciyev.mylessonproject.fetures.NewNotes
+package com.kenanhaciyev.mylessonproject.fetures.newnotes
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

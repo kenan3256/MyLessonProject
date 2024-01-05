@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.kenanhaciyev.mylessonproject.MainActivtyViewModel" />
+            type="com.kenanhaciyev.mylessonproject.fetures.notes.MainActivtyViewModel" />
 
     </data>
 
@@ -16,9 +16,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
-        android:background="#D5EDBA"
+
         android:padding="10dp"
-        tools:context=".MainActivity">
+        tools:context=".fetures.notes.MainActivity">
 
 
         <Button
