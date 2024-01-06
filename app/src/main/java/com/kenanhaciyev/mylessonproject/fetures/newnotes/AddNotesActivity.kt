@@ -24,10 +24,12 @@ class AddNotesActivity: AppCompatActivity() {
         binding.viewModel = viewModel
 
     }
+
+
     fun observerAll() {
         viewModel.newNoteCallback.observe(this){
             val intent = Intent()
-            val notes = Notes("Yanvar", "ise get")
+            val notes = viewModel.createAddNewNotes() //
             intent.putExtra("notes", notes)
             setResult(RESULT_OK, intent )
             finish()

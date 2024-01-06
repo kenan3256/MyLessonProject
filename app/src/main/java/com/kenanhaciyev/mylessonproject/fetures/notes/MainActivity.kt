@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import com.kenanhaciyev.mylessonproject.databinding.ActivityMainBinding
+import com.kenanhaciyev.mylessonproject.fetures.adapters.NotesListAdapters
 import com.kenanhaciyev.mylessonproject.fetures.model.Notes
 import com.kenanhaciyev.mylessonproject.fetures.newnotes.AddNotesActivity
 
@@ -14,8 +15,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
     lateinit var viewModel: MainActivtyViewModel
-
-
+    lateinit var adaptes: NotesListAdapters
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,6 +24,18 @@ class MainActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         setContentView(binding.root)
+       
+
+        val item = mutableListOf<Notes>() //addapter
+
+
+        adaptes = NotesListAdapters(this.baseContext, mutableListOf(), onItemClick = {notes ->
+        println(notes)
+
+        }) //adapter
+        binding.notesListView.adapter = adaptes //adapter
+
+
     }
 
     fun openAddStudentActivity() {
@@ -35,7 +47,10 @@ class MainActivity : AppCompatActivity() {
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { resualt ->
             if (resualt.resultCode == Activity.RESULT_OK) {
                 val item = resualt.data?.getParcelableExtra<Notes>("notes")
-            println(item)
+                item?.let {
+                    adaptes.addNewItem(it)
+                }
+
             }
         }
 
