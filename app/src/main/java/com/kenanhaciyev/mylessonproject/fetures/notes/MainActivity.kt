@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
+import com.kenanhaciyev.mylessonproject.R
 import com.kenanhaciyev.mylessonproject.databinding.ActivityMainBinding
 import com.kenanhaciyev.mylessonproject.fetures.adapters.NotesListAdapters
 import com.kenanhaciyev.mylessonproject.fetures.model.Notes
@@ -24,6 +27,10 @@ class MainActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         setContentView(binding.root)
+        //ana fragment mencerdi
+        var navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+       val navController = navHostFragment.navController
+        binding.bottomNavigation.setupWithNavController(navController)
        
 
         val item = mutableListOf<Notes>() //addapter

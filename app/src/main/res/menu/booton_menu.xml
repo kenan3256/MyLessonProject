@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menuFragment"
+        android:icon="@drawable/add_icon"
+        android:title="@string/add_notes">
+
+    </item>
+    <item
+        android:id="@+id/notesFragment"
+        android:icon="@drawable/_deleth_icon"
+        android:title="@string/delet_notes">
+
+    </item>
+    <item
+        android:id="@+id/contactFragment"
+        android:icon="@drawable/ok_icon"
+        android:title="@string/update_notes">
+
+    </item>
+    <item
+        android:id="@+id/aboutFragment"
+        android:icon="@drawable/create_ic_icon"
+        android:title="@string/create_notes">
+
+    </item>
+
+</menu>

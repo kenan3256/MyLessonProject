@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.kenanhaciyev.mylessonproject.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" />
+
+    <action
+        android:id="@+id/action_menu_to_notes"
+        app:destination="@+id/notesFragment">
+
+    </action>
+    <action
+        android:id="@+id/action_menu_to_notes_detail"
+        app:destination="@+id/notesDetail">
+
+    </action>
+
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.kenanhaciyev.mylessonproject.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes">
+
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.kenanhaciyev.mylessonproject.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.kenanhaciyev.mylessonproject.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/notesDetail"
+        android:name="com.kenanhaciyev.mylessonproject.NotesDetail"
+        android:label="fragment_notes_detail"
+        tools:layout="@layout/fragment_notes_detail" />
+</navigation>
